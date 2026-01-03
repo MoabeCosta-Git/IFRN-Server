@@ -11,3 +11,7 @@ class Categoria(enum.Enum):
 
 class Campus(enum.Enum):
     zn = "IFRN-Zona Norte"
+
+class Perfil(enum.enum):
+    solicitante = "Solicitante"
+    prestador = "Prestador"

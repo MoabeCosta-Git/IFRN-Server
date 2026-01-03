@@ -10,7 +10,6 @@ class Tarefa(db.Model):
     criacao = db.Column(db.Datetime, default=datetime.utcnow, nullable=False)
     prazo = db.Column(db.Datetime, nullable=False)
     campus = db.Column(db.Enum(Campus))
+    solicitante_id = db.Column(db.Integer, db.Foreignkey('usuario.id'),nullable=False)
+    prestador_id = db.Column(db.Integer, db.ForeignKey('usuario.id'))
     status = db.Column(db.Enum(StatusTarefa), default=StatusTarefa.pendente, nullable=False)
-
-
-    
