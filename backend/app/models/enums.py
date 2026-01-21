@@ -9,9 +9,6 @@ class Categoria(enum.Enum):
     preventiva = "Manutenção preventiva"
     defeito = "Defeito/Mal funcionamento"
 
-class Campus(enum.Enum):
-    zn = "IFRN-Zona Norte"
-
 class Perfil(enum.enum):
     solicitante = "Solicitante"
     prestador = "Prestador"
