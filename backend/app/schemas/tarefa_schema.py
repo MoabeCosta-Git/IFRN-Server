@@ -1,6 +1,8 @@
 from marshmallow import Schema, fields, validate
+from .. import ma
 from ..models.enums import Categoria
 from ..utils.enum_utils import enum_values
+from ..models.tarefa import Tarefa
 
 class TarefaEntrada(Schema):
     titulo = fields.String(
@@ -20,3 +22,21 @@ class TarefaEntrada(Schema):
     categoria = fields.String(
         required=True,
         validate=validate.OneOf(enum_values(Categoria)))
+
+class TarefaSaida(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Tarefa
+        fields = (
+            "id",
+            "titulo",
+            "descricao",
+            "categoria",
+            "status",
+            "prazo",
+            "campus",
+            "solicitante_id",
+            "prestador_id",
+            "data_criacao")
+
+class AtualizarPrestador(Schema):
+    prestador_id = fields.Integer(required=True)

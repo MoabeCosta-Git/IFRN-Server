@@ -1,5 +1,6 @@
-from marshmallow import Schema, fields, validate
-from marshmallow import ValidationError
+from marshmallow import Schema, fields, validate, ValidationError
+from .. import ma
+from ..models.usuario import Usuario
 
 def validar_email(value):
     if not value.endswith("@escolar.ifrn.edu.br"):
@@ -21,3 +22,8 @@ class UsuarioEntrada(Schema):
         required=True,
         validate=validate.Length(min=8, max=255),
         load_only=True)
+    
+class UsuarioSaida(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Usuario
+        fields = ("id", "nome", "email", "perfil")

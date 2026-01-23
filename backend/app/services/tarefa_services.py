@@ -1,4 +1,4 @@
-from ..extensoes import db
+from ..extensions import db
 from ..models.tarefa import Tarefa
 from ..models.enums import StatusTarefa
 
@@ -12,7 +12,6 @@ def criar_tarefa(data, solicitante_id):
     db.session.commit()
     
     return tarefa
-
 
 def aceitar_tarefa(tarefa, prestador_id):
     if tarefa.prestador_id:
