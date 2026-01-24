@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from ..schemas.usuario_schema import UsuarioEntrada, UsuarioSaida
-from ..services.usuario_services import criar_usuario
+from app.schemas.usuario import UsuarioEntrada, UsuarioSaida
+from app.services.usuarios import criar_usuario
 
 usuario_bp = Blueprint("usuarios", __name__)
 

@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields, validate, ValidationError
-from .. import ma
-from ..models.usuario import Usuario
+from app.extensions import ma
+from app.models.usuario import Usuario
 
 def validar_email(value):
     if not value.endswith("@escolar.ifrn.edu.br"):
@@ -9,8 +9,11 @@ def validar_email(value):
 class UsuarioEntrada(Schema):
     nome = fields.String(
         required=True,
-        validate=validate.Length(min=1, max=100),
-         error="O nome deve ter entre 1 e 100 caracteres.")
+        validate=validate.Length(
+        min=1,
+        max=100,
+        error_messages="O nome deve ter entre 1 e 100 caracteres."),
+        )
     
     email = fields.Email(
         required=True,

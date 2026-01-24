@@ -1,6 +1,6 @@
-from ..extensions import db
-from ..models.tarefa import Tarefa
-from ..models.enums import StatusTarefa
+from app.extensions import db
+from app.models.tarefa import Tarefa
+from app.models.enums import StatusTarefa
 
 def criar_tarefa(data, solicitante_id):
     tarefa = Tarefa(

@@ -1,6 +1,6 @@
 from flask import Blueprint, request
-from app.schemas.tarefa_schema import TarefaEntrada,TarefaSaida, AtualizarPrestador
-from app.services.tarefa_services import criar_tarefa, aceitar_tarefa
+from app.schemas.tarefa import TarefaEntrada,TarefaSaida, AtualizarPrestador
+from app.services.tarefas import criar_tarefa, aceitar_tarefa
 from app.models.tarefa import Tarefa
 
 tarefa_bp = Blueprint("tarefas", __name__)

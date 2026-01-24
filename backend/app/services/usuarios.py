@@ -1,5 +1,5 @@
-from ..extensions import db
-from ..models.usuario import Usuario
+from app.extensions import db
+from app.models.usuario import Usuario
 from werkzeug.security import generate_password_hash
 
 def criar_usuario(data):

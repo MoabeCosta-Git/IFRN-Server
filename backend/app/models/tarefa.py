@@ -1,6 +1,6 @@
-from .. import db
+from app.extensions import db
 from datetime import datetime
-from .enums import StatusTarefa, Categoria, Campus
+from app.models.enums import StatusTarefa, Categoria, Campus
 
 class Tarefa(db.Model):
     __tablename__ = "tarefas"

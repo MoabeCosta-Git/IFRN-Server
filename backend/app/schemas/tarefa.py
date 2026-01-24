@@ -1,8 +1,8 @@
 from marshmallow import Schema, fields, validate
-from .. import ma
-from ..models.enums import Categoria
-from ..utils.enum_utils import enum_values
-from ..models.tarefa import Tarefa
+from app.extensions import ma
+from app.models.enums import Categoria
+from app.utils.enum_utils import enum_values
+from app.models.tarefa import Tarefa
 
 class TarefaEntrada(Schema):
     titulo = fields.String(

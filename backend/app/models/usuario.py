@@ -1,5 +1,5 @@
-from .. import db
-from .enums import Perfil
+from app.extensions import db
+from app.models.enums import Perfil
 
 class Usuario(db.Model):
     __tablename__ = "usuarios"
