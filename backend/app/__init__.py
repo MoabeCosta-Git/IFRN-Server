@@ -9,9 +9,7 @@ def create_app():
     app.json.sort_keys = False
 
     db.init_app(app)
-    migrate.init_app(app)
-    ma.init_app(app, db)
-
-    app.register_blueprint()
+    ma.init_app(app)
+    migrate.init_app(app, db)
 
     return app
