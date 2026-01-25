@@ -12,3 +12,4 @@ class Categoria(enum.Enum):
 class Perfil(enum.enum):
     solicitante = "Solicitante"
     prestador = "Prestador"
+    admin = "Administrador"
