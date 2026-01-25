@@ -12,4 +12,10 @@ def create_app():
     ma.init_app(app)
     migrate.init_app(app, db)
 
+    from app.routes.usuarios import usuario_bp
+    from app.routes.tarefas import tarefa_bp
+    
+    app.register_blueprint(usuario_bp)
+    app.register_blueprint(tarefa_bp)
+
     return app
