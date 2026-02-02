@@ -22,6 +22,13 @@ class TarefaEntrada(Schema):
     categoria = fields.String(
         required=True,
         validate=validate.OneOf(enum_values(Categoria)))
+    
+    prazo = fields.Date(
+        required=True,
+        format="%d/%m/%Y",
+        error_messages={
+            "invalid": "Formato de data inválido. Use DD/MM/AAAA."
+    })
 
 class TarefaSaida(ma.SQLAlchemyAutoSchema):
     class Meta:
