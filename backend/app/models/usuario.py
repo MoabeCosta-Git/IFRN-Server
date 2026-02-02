@@ -7,4 +7,3 @@ class Usuario(db.Model):
     nome = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(254), nullable=False, unique=True)
     senha = db.Column(db.String(255), nullable=False)
-    perfil = db.Column(db.Enum(Perfil, native_enum=False), nullable=False)

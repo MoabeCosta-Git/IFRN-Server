@@ -26,11 +26,6 @@ class UsuarioEntrada(Schema):
         validate=validate.Length(min=8, max=255),
         load_only=True)
     
-    perfil = fields.String(
-        required=True,
-        validate=validate.OneOf([Perfil.solicitante.value, Perfil.prestador.value],
-        error="Perfil inválido! Escolha se deseja ser um Solicitante ou Prestador"))
-    
 class UsuarioSaida(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Usuario
