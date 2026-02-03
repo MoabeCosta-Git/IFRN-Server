@@ -1,10 +1,16 @@
 from app.extensions import db
 from app.models.tarefa import Tarefa
 from app.models.enums import StatusTarefa
+from datetime import datetime
 
 def criar_tarefa(data, usuario_id):
+    prazo = data["prazo"]
+
     tarefa = Tarefa(
-        **data,
+        titulo=data["titulo"],
+        descricao=data["descricao"],
+        categoria=data["categoria"],
+        prazo=datetime.combine(prazo, datetime.min.time()),
         solicitante_id=usuario_id,
         status=StatusTarefa.pendente
     )
