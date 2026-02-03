@@ -1,6 +1,7 @@
 from flask import Flask
 from app.config import Config
-from app.extensions import db, ma, migrate
+from app.extensions import db, ma, migrate, login_manager
+from app.models.usuario import Usuario
 
 def create_app():
     app = Flask(__name__)
@@ -11,6 +12,11 @@ def create_app():
     db.init_app(app)
     ma.init_app(app)
     migrate.init_app(app, db)
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return Usuario.query.get(int(user_id))
 
     from app.routes.usuarios import usuario_bp
     from app.routes.tarefas import tarefa_bp
