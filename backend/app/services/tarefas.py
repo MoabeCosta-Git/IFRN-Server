@@ -10,7 +10,6 @@ def criar_tarefa(data, usuario_id):
     )
     db.session.add(tarefa)
     db.session.commit()
-    
     return tarefa
 
 def aceitar_tarefa(tarefa, usuario_id):
@@ -23,6 +22,5 @@ def aceitar_tarefa(tarefa, usuario_id):
     tarefa.prestador_id = usuario_id
     tarefa.status = StatusTarefa.em_andamento
     db.session.commit()
-
     return tarefa
 

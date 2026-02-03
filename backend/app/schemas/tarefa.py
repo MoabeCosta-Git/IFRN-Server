@@ -44,6 +44,3 @@ class TarefaSaida(ma.SQLAlchemyAutoSchema):
             "solicitante_id",
             "prestador_id",
             "data_criacao")
-
-class AtualizarPrestador(Schema):
-    prestador_id = fields.Integer(required=True)
