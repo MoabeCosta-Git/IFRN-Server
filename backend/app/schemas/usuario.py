@@ -30,3 +30,11 @@ class UsuarioSaida(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Usuario
         fields = ("id", "nome", "email", "perfil")
+
+class UsuarioUpdateSchema(Schema):
+    nome = fields.String(
+         required=True,
+        validate=validate.Length(
+        min=1,
+        max=100,
+        error_messages="O nome deve ter entre 1 e 100 caracteres."))
