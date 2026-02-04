@@ -15,14 +15,14 @@ tarefas_saida = TarefaSaida(many=True)
 def criar():
     data = TarefaEntrada().load(request.get_json() or {})
     tarefa = criar_tarefa(data, solicitante_id=current_user.id)
-    return TarefaSaida().dump(tarefa),201
+    return jsonify(tarefa_saida.dump(tarefa),201)
 
 @tarefa_bp.patch("/<int:id>/aceitar")
 @login_required
 def aceitar(tarefa_id):
     tarefa = Tarefa.query.get_or_404(tarefa_id)    
     tarefa = aceitar_tarefa(tarefa, usuario_id=current_user.id)
-    return TarefaSaida().dump(tarefa)
+    return jsonify(tarefa_saida.dump(tarefa))
 
 @tarefa_bp.get("/minhas-solicitadas")
 @login_required

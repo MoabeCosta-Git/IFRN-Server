@@ -12,7 +12,7 @@ usuario_saida = UsuarioSaida()
 def criar():
     data = UsuarioEntrada().load(request.json)
     usuario = criar_usuario(data)
-    return usuario_saida.dump(usuario),201
+    return jsonify(usuario_saida.dump(usuario),201)
 
 @usuario_bp.get("/me")
 @login_required
