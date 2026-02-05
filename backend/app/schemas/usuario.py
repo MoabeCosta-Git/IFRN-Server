@@ -1,7 +1,6 @@
 from marshmallow import Schema, fields, validate, ValidationError
 from app.extensions import ma
 from app.models.usuario import Usuario
-from app.models.enums import Perfil
 
 def validar_email(value):
     if not value.endswith("@escolar.ifrn.edu.br"):
@@ -32,7 +31,7 @@ class UsuarioEntrada(Schema):
 class UsuarioSaida(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Usuario
-        fields = ("id", "nome", "email", "perfil")
+        fields = ("id", "nome", "email")
 
 class UsuarioUpdateSchema(Schema):
     nome = fields.String(
