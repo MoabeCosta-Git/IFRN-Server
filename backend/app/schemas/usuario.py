@@ -11,9 +11,9 @@ class UsuarioEntrada(Schema):
     nome = fields.String(
         required=True,
         validate=validate.Length(
-        min=1,
-        max=100,
-        error_messages="O nome deve ter entre 1 e 100 caracteres."))
+            min=1,
+            max=100,
+            error="O nome deve ter entre 1 e 100 caracteres."))
     
     email = fields.Email(
         required=True,
@@ -23,8 +23,11 @@ class UsuarioEntrada(Schema):
 
     senha = fields.String(
         required=True,
-        validate=validate.Length(min=8, max=255),
-        load_only=True)
+        validate=validate.Length(
+            min=8,
+            max=255,
+            error="A senha deve ter no mínimo 8 caracteres."),
+            load_only=True)
     
 class UsuarioSaida(ma.SQLAlchemyAutoSchema):
     class Meta:
@@ -33,8 +36,8 @@ class UsuarioSaida(ma.SQLAlchemyAutoSchema):
 
 class UsuarioUpdateSchema(Schema):
     nome = fields.String(
-         required=True,
+        required=True,
         validate=validate.Length(
-        min=1,
-        max=100,
-        error_messages="O nome deve ter entre 1 e 100 caracteres."))
+            min=1,
+            max=100,
+            error="O nome deve ter entre 1 e 100 caracteres."))

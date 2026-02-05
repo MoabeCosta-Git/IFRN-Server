@@ -21,7 +21,9 @@ class TarefaEntrada(Schema):
     
     categoria = fields.String(
         required=True,
-        validate=validate.OneOf(enum_values(Categoria)))
+        validate=validate.OneOf(
+            enum_values(Categoria),
+            error="Categoria inválida."))
     
     prazo = fields.Date(
         required=True,
