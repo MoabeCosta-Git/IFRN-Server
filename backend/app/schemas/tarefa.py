@@ -34,9 +34,9 @@ class TarefaEntrada(Schema):
 
 class TarefaSaida(ma.SQLAlchemyAutoSchema):
     prazo = fields.Date(format="%d/%m/%Y")
-    
     class Meta:
         model = Tarefa
+        include_fk = True
         fields = (
             "id",
             "titulo",

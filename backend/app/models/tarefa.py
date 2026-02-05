@@ -1,6 +1,6 @@
 from app.extensions import db
 from datetime import datetime
-from app.models.enums import StatusTarefa, Categoria, Campus
+from app.models.enums import StatusTarefa, Categoria
 
 class Tarefa(db.Model):
     __tablename__ = "tarefas"
@@ -9,8 +9,8 @@ class Tarefa(db.Model):
     descricao = db.Column(db.String(255), nullable=False)
     categoria = db.Column(db.Enum(Categoria, native_enum=False), nullable=False)
     data_criacao = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-    prazo = db.Column(db.Datetime, nullable=False)
+    prazo = db.Column(db.DateTime, nullable=False)
     campus = db.Column(db.String(100), default="IFRN-Zona Norte", nullable=False)
-    solicitante_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),nullable=False)
-    prestador_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=True)
+    solicitante_id = db.Column(db.Integer, db.ForeignKey('usuarios.id'),nullable=False)
+    prestador_id = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=True)
     status = db.Column(db.Enum(StatusTarefa, native_enum=False), default=StatusTarefa.pendente, nullable=False)
