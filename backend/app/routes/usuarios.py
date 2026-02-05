@@ -10,9 +10,9 @@ usuario_saida = UsuarioSaida()
 
 @usuario_bp.post("/")
 def criar():
-    data = UsuarioEntrada().load(request.json)
+    data = UsuarioEntrada().load(request.get_json() or {})
     usuario = criar_usuario(data)
-    return jsonify(usuario_saida.dump(usuario),201)
+    return jsonify(usuario_saida.dump(usuario)),201
 
 @usuario_bp.get("/me")
 @login_required

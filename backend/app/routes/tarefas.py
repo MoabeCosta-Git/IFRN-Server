@@ -17,7 +17,7 @@ def criar():
     tarefa = criar_tarefa(data, solicitante_id=current_user.id)
     return jsonify(tarefa_saida.dump(tarefa),201)
 
-@tarefa_bp.patch("/<int:id>/aceitar")
+@tarefa_bp.patch("/<int:tarefa_id>/aceitar")
 @login_required
 def aceitar(tarefa_id):
     tarefa = Tarefa.query.get_or_404(tarefa_id)    
@@ -30,6 +30,7 @@ def minhas_solicitadas():
     status_url = request.args.get("status")
     query = Tarefa.query.filter_by(solicitante_id=current_user.id)
 
+    status = None
     if status_url:
         status = parse_status(status_url)
     if status:
@@ -44,6 +45,7 @@ def minhas_prestadas():
     status_url = request.args.get("status")
     query = Tarefa.query.filter_by(prestador_id=current_user.id)
 
+    status = None
     if status_url:
         status = parse_status(status_url)
     if status:
