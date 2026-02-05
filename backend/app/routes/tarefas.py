@@ -5,7 +5,7 @@ from app.models.tarefa import Tarefa
 from flask_login import login_required, current_user
 from app.utils.enum_utils import parse_status
 
-tarefa_bp = Blueprint("tarefas", __name__)
+tarefa_bp = Blueprint("tarefas", __name__, url_prefix="/tarefas")
 
 tarefa_saida = TarefaSaida()
 tarefas_saida = TarefaSaida(many=True)

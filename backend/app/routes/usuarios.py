@@ -4,7 +4,7 @@ from app.services.usuarios import criar_usuario
 from flask_login import login_required, current_user
 from app.extensions import db
 
-usuario_bp = Blueprint("usuarios", __name__)
+usuario_bp = Blueprint("usuarios", __name__, url_prefix="/usuarios")
 
 usuario_saida = UsuarioSaida()
 

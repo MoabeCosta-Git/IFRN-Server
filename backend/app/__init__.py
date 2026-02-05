@@ -20,8 +20,10 @@ def create_app():
 
     from app.routes.usuarios import usuario_bp
     from app.routes.tarefas import tarefa_bp
+    from app.routes.auth import auth_bp
     
     app.register_blueprint(usuario_bp)
     app.register_blueprint(tarefa_bp)
+    app.register_blueprint(auth_bp)
 
     return app
