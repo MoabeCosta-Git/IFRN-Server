@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields, validate
 from app.extensions import ma
 from app.models.enums import Categoria
-from app.utils.enum_utils import enum_values
+from app.utils.enum_utils import enum_keys
 from app.models.tarefa import Tarefa
 
 class TarefaEntrada(Schema):
@@ -22,7 +22,7 @@ class TarefaEntrada(Schema):
     categoria = fields.String(
         required=True,
         validate=validate.OneOf(
-            enum_values(Categoria),
+            enum_keys(Categoria),
             error="Categoria inválida."))
     
     prazo = fields.Date(
