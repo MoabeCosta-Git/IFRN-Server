@@ -15,7 +15,7 @@ tarefas_saida = TarefaSaida(many=True)
 def criar():
     data = TarefaEntrada().load(request.get_json() or {})
     tarefa = criar_tarefa(data, solicitante_id=current_user.id)
-    return jsonify(tarefa_saida.dump(tarefa),201)
+    return jsonify(tarefa_saida.dump(tarefa)),201
 
 @tarefa_bp.patch("/<int:tarefa_id>/aceitar")
 @login_required
