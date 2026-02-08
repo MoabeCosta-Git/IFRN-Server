@@ -40,9 +40,3 @@ def login():
 def logout():
     logout_user()
     return jsonify({"mensagem": "Logout realizado"}), 200
-
-
-@auth_bp.get("/me")
-@login_required
-def me():
-    return jsonify(usuario_saida.dump(current_user)), 200
