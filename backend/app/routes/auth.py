@@ -45,4 +45,4 @@ def logout():
 @auth_bp.get("/me")
 @login_required
 def me():
-    return jsonify(usuario_saida.dump(current_user))
+    return jsonify(usuario_saida.dump(current_user)), 200

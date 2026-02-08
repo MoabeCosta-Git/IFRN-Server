@@ -22,7 +22,7 @@ def criar():
 def aceitar(tarefa_id):
     tarefa = Tarefa.query.get_or_404(tarefa_id)    
     tarefa = aceitar_tarefa(tarefa, usuario_id=current_user.id)
-    return jsonify(tarefa_saida.dump(tarefa))
+    return jsonify(tarefa_saida.dump(tarefa)), 200
 
 @tarefa_bp.get("/minhas-solicitadas")
 @login_required
