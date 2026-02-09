@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Criar tarefa • IFRN{% endblock %}
+
+{% block nav %}
+  <a class="navLink" href="/tarefas/disponiveis">Disponíveis</a>
+  <a class="navLink active" href="/tarefas/criar">Criar tarefa</a>
+  <a class="navLink" href="/tarefas/minhas">Minhas tarefas</a>
+  <a class="navLink" href="/usuario">Usuário</a>
+{% endblock %}
+
+{% block content %}
+<section class="view">
+  <section class="card">
+    <div class="cardHead">
+      <h2>Criar tarefa</h2>
+      <button class="btn" id="btnClearTask">Limpar</button>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <div class="row">
+          <label for="tTitulo">Título</label>
+          <input id="tTitulo" type="text" placeholder="Mín. 10 caracteres" />
+        </div>
+
+        <div class="row">
+          <label for="tCategoria">Categoria</label>
+          <select id="tCategoria">
+            <option value="preventiva">Manutenção preventiva</option>
+            <option value="defeito">Defeito/Mal funcionamento</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label for="tPrazo">Prazo (DD/MM/AAAA)</label>
+          <input id="tPrazo" type="text" placeholder="10/02/2026" />
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" id="btnCriarTarefa">Criar</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="row">
+          <label for="tDescricao">Descrição</label>
+          <textarea id="tDescricao" rows="9" placeholder="Mín. 20 caracteres"></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/criar.js"></script>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Usuário • IFRN{% endblock %}
+
+{% block nav %}
+  <a class="navLink" href="/tarefas/disponiveis">Disponíveis</a>
+  <a class="navLink" href="/tarefas/criar">Criar tarefa</a>
+  <a class="navLink" href="/tarefas/minhas">Minhas tarefas</a>
+  <a class="navLink active" href="/usuario">Usuário</a>
+{% endblock %}
+
+{% block content %}
+<section class="view">
+  <div class="grid2">
+    <section class="card">
+      <div class="cardHead">
+        <h2>Minha conta</h2>
+        <button class="btn" id="btnRefreshMe">Atualizar</button>
+      </div>
+
+      <div class="kv">
+        <div class="k">ID</div><div class="v" id="meId">-</div>
+        <div class="k">Nome</div><div class="v" id="meNome">-</div>
+        <div class="k">E-mail</div><div class="v" id="meEmail">-</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="cardHead">
+        <h2>Atualizar nome</h2>
+      </div>
+
+      <div class="row">
+        <label for="novoNome">Novo nome</label>
+        <input id="novoNome" type="text" placeholder="Ex.: Cebolinha" />
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="btnAtualizarNome">Salvar</button>
+      </div>
+    </section>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/usuario.js"></script>
+{% endblock %}

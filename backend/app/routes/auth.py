@@ -5,7 +5,7 @@ from app.schemas.auth import LoginSchema
 from app.services.usuarios import criar_usuario
 from app.services.auth import autenticar
 
-auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
+auth_bp = Blueprint("auth", __name__, url_prefix="/api/auth")
 
 usuario_saida = UsuarioSaida()
 

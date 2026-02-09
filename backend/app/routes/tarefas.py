@@ -6,7 +6,7 @@ from flask_login import login_required, current_user
 from app.utils.enum_utils import parse_status
 from app.models.enums import StatusTarefa
 
-tarefa_bp = Blueprint("tarefas", __name__, url_prefix="/tarefas")
+tarefa_bp = Blueprint("tarefas", __name__, url_prefix="/api/tarefas")
 
 tarefa_saida = TarefaSaida()
 tarefas_saida = TarefaSaida(many=True)

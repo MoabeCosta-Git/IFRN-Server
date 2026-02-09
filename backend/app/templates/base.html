@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}IFRN • Tarefas MSI{% endblock %}</title>
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">TI</div>
+      <div class="brandText">
+        <div class="title">TechQuest • MSI</div>
+        <div class="subtitle">Plataforma de Atendimento <br> Técnico Acadêmico</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      {% block nav %}
+      <!-- no login, o menu pode ficar oculto -->
+      {% endblock %}
+    </nav>
+
+    <div class="userbar">
+      <span id="whoami" class="pill">Deslogado</span>
+      <button id="btnLogout" class="btn ghost hidden">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="alertBox" class="alert hidden" role="alert" aria-live="polite">
+      <div class="alertTop">
+        <div class="alertTitle" id="alertTitle">Aviso</div>
+        <button class="iconBtn" id="btnCloseAlert" title="Fechar">✕</button>
+      </div>
+      <div id="alertMsg" class="alertMsg"></div>
+    </section>
+
+    {% block content %}{% endblock %}
+
+  </main>
+
+  <script src="/static/shared.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

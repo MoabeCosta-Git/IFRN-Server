@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Login • IFRN{% endblock %}
+
+{% block nav %}
+  <!-- sem menu no login -->
+{% endblock %}
+
+{% block content %}
+<section class="view" id="loginView">
+  <div class="grid2">
+    <section class="card">
+      <div class="cardHead">
+        <h2>Entrar</h2>
+        <span class="badge">Login obrigatório</span>
+      </div>
+
+      <div class="row">
+        <label for="loginEmail">E-mail</label>
+        <input id="loginEmail" type="email" placeholder="seu@escolar.ifrn.edu.br" autocomplete="email"/>
+      </div>
+
+      <div class="row">
+        <label for="loginSenha">Senha</label>
+        <input id="loginSenha" type="password" placeholder="••••••••" autocomplete="current-password"/>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="btnLogin" type="button">Login</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="cardHead">
+        <h2>Cadastrar</h2>
+        <span class="badge">Registre-se para continuar</span>
+      </div>
+
+      <div class="row">
+        <label for="regNome">Nome</label>
+        <input id="regNome" type="text" placeholder="Seu nome" autocomplete="name"/>
+      </div>
+
+      <div class="row">
+        <label for="regEmail">E-mail</label>
+        <input id="regEmail" type="email" placeholder="seu@escolar.ifrn.edu.br" autocomplete="email"/>
+      </div>
+
+      <div class="row">
+        <label for="regSenha">Senha</label>
+        <input id="regSenha" type="password" placeholder="mín. 8 caracteres" autocomplete="new-password"/>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="btnRegister" type="button">Cadastrar e Entrar</button>
+      </div>
+    </section>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/login.js"></script>
+{% endblock %}

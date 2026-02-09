@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Minhas tarefas • IFRN{% endblock %}
+
+{% block nav %}
+  <a class="navLink" href="/tarefas/disponiveis">Disponíveis</a>
+  <a class="navLink" href="/tarefas/criar">Criar tarefa</a>
+  <a class="navLink active" href="/tarefas/minhas">Minhas tarefas</a>
+  <a class="navLink" href="/usuario">Usuário</a>
+{% endblock %}
+
+{% block content %}
+<section class="view">
+  <div class="grid2">
+    <section class="card">
+      <div class="cardHead">
+        <h2>Minhas solicitadas</h2>
+        <div class="right">
+          <select id="filtroSolicitadas" class="selectSmall">
+            <option value="">Filtros</option>
+            <option value="pendente">Pendente</option>
+            <option value="em_andamento">Em andamento</option>
+            <option value="concluido">Concluído</option>
+          </select>
+          <button class="btn" id="btnRefreshSolicitadas">Recarregar</button>
+        </div>
+      </div>
+      <div id="listaSolicitadas" class="list"></div>
+    </section>
+
+    <section class="card">
+      <div class="cardHead">
+        <h2>Minhas prestadas</h2>
+        <div class="right">
+          <select id="filtroPrestadas" class="selectSmall">
+            <option value="">Filtros</option>
+            <option value="pendente">Pendente</option>
+            <option value="em_andamento">Em andamento</option>
+            <option value="concluido">Concluído</option>
+          </select>
+          <button class="btn" id="btnRefreshPrestadas">Recarregar</button>
+        </div>
+      </div>
+      <div id="listaPrestadas" class="list"></div>
+    </section>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/minhas.js"></script>
+{% endblock %}

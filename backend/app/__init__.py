@@ -1,7 +1,8 @@
-from flask import Flask
+from flask import Flask, render_template
 from app.config import Config
 from app.extensions import db, ma, migrate, login_manager
 from app.models.usuario import Usuario
+
 
 def create_app():
     app = Flask(__name__)
@@ -21,9 +22,11 @@ def create_app():
     from app.routes.usuarios import usuario_bp
     from app.routes.tarefas import tarefa_bp
     from app.routes.auth import auth_bp
+    from app.routes.pages import pages_bp
     
     app.register_blueprint(usuario_bp)
     app.register_blueprint(tarefa_bp)
     app.register_blueprint(auth_bp)
+    app.register_blueprint(pages_bp)
 
     return app

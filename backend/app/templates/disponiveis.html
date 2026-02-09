@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Disponíveis • IFRN{% endblock %}
+
+{% block nav %}
+  <a class="navLink active" href="/tarefas/disponiveis">Disponíveis</a>
+  <a class="navLink" href="/tarefas/criar">Criar tarefa</a>
+  <a class="navLink" href="/tarefas/minhas">Minhas tarefas</a>
+  <a class="navLink" href="/usuario">Usuário</a>
+{% endblock %}
+
+{% block content %}
+<section class="view">
+  <section class="card">
+    <div class="cardHead">
+      <h2>Tarefas disponíveis</h2>
+      <button class="btn" id="btnRefreshDisponiveis">Recarregar</button>
+    </div>
+
+    <p class="hint">Tarefas pendentes sem prestador (exceto as suas).</p>
+    <div id="listaDisponiveis" class="list"></div>
+  </section>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/disponiveis.js"></script>
+{% endblock %}
