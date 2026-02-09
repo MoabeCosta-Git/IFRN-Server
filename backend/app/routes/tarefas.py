@@ -4,11 +4,24 @@ from app.services.tarefas import criar_tarefa, aceitar_tarefa
 from app.models.tarefa import Tarefa
 from flask_login import login_required, current_user
 from app.utils.enum_utils import parse_status
+from app.models.enums import StatusTarefa
 
 tarefa_bp = Blueprint("tarefas", __name__, url_prefix="/tarefas")
 
 tarefa_saida = TarefaSaida()
 tarefas_saida = TarefaSaida(many=True)
+
+@tarefa_bp.get("/disponiveis")
+@login_required
+def disponiveis():
+    query = Tarefa.query.filter(
+        Tarefa.status == StatusTarefa.pendente,
+        Tarefa.prestador_id.is_(None),
+        Tarefa.solicitante_id != current_user.id
+    ).order_by(Tarefa.id.desc())
+
+    tarefas = query.all()
+    return jsonify(tarefas_saida.dump(tarefas)), 200
 
 @tarefa_bp.post("/")
 @login_required
