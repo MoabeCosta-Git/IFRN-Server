@@ -7,3 +7,7 @@ class Usuario(db.Model, UserMixin):
     nome = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(254), nullable=False, unique=True)
     senha = db.Column(db.String(255), nullable=False)
+    admin = db.Column(db.Boolean, default=False, nullable=False)
+
+    def is_admin(self):
+        return self.admin

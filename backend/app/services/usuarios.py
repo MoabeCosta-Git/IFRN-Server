@@ -6,10 +6,12 @@ def criar_usuario(data):
     if Usuario.query.filter_by(email=data["email"]).first():
         raise ValueError("E-mail já cadastrado")
 
+
     usuario = Usuario(
         nome=data["nome"],
         email=data["email"],
-        senha=generate_password_hash(data["senha"])
+        senha=generate_password_hash(data["senha"]),
+        admin=data.get("admin", False)
     )
 
     db.session.add(usuario)

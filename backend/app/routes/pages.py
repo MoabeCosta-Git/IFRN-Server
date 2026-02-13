@@ -26,3 +26,7 @@ def disponiveis():
 @login_required
 def minhas():
     return render_template("minhas_tarefas.html")
+
+@pages_bp.get("/tarefas/editar/<int:tarefa_id>")
+def editar_tarefa(tarefa_id):
+    return render_template("editar_tarefa.html", tarefa_id=tarefa_id)

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Editar tarefa • IFRN{% endblock %}
+
+{% block nav %}
+  <a class="navLink" href="/tarefas/disponiveis">Disponíveis</a>
+  <a class="navLink" href="/tarefas/criar">Criar tarefa</a>
+  <a class="navLink" href="/tarefas/minhas">Minhas tarefas</a>
+  <a class="navLink" href="/usuario">Usuário</a>
+{% endblock %}
+
+{% block content %}
+<section class="view">
+  <section class="card" style="max-width:600px;margin:auto;">
+    <div class="cardHead">
+      <h2>Editar tarefa</h2>
+    </div>
+    <form id="formEditarTarefa">
+      <div class="row">
+        <label for="titulo">Título</label>
+        <input id="titulo" name="titulo" type="text" required minlength="10" maxlength="100" />
+      </div>
+      <div class="row">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao" required minlength="20" maxlength="255"></textarea>
+      </div>
+      <div class="row">
+        <label for="categoria">Categoria</label>
+        <select id="categoria" name="categoria" required>
+          <option value="preventiva">Manutenção preventiva</option>
+          <option value="defeito">Defeito/Mal funcionamento</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="prazo">Prazo</label>
+        <input id="prazo" name="prazo" type="text" placeholder="DD/MM/AAAA" required />
+      </div>
+      <div class="actions">
+        <button class="btn primary" type="submit">Salvar alterações</button>
+        <a class="btn" href="/tarefas/minhas">Cancelar</a>
+      </div>
+    </form>
+  </section>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/editar_tarefa.js"></script>
+{% endblock %}

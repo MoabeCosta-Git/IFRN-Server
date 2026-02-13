@@ -31,7 +31,7 @@ class UsuarioEntrada(Schema):
 class UsuarioSaida(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Usuario
-        fields = ("id", "nome", "email")
+        fields = ("id", "nome", "email", "admin")
 
 class UsuarioUpdateSchema(Schema):
     nome = fields.String(

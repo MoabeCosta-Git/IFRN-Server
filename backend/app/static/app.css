@@ -1,3 +1,8 @@
+.itemWide {
+  min-width: 480px;
+  max-width: 100%;
+  /* Ajuste conforme necessário */
+}
 :root{
   --bg:#0b1220;
   --panel:#0f1a2f;
